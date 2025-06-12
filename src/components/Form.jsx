@@ -7,10 +7,6 @@ export default function Form() {
     const [password, setPassword] = useState("1234");
     const [confirmPassword, setConfirmPassword] = useState("1234");
 
-    const handleSubmit = (event) => {
-        
-    }
-
   return (
     <form>
         <input 
@@ -18,7 +14,7 @@ export default function Form() {
             placeholder='Enter your name'
             value={name}
             onChange={(event)=>{
-                
+
                 setName(event.target.value)
             }}
         />
