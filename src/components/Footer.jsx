@@ -1,0 +1,7 @@
+// rafc, (rfc)
+export const Footer = () => {
+  return (
+    <div>Footer</div>
+  )
+}
+
