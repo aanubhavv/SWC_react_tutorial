@@ -1,4 +1,5 @@
 import ProductItem from './ProductItem'
+import { useState } from 'react';
 
 const products = [
   {
@@ -12,11 +13,19 @@ const products = [
 ];
 
 export default function Products() {
+  const [loading, setLoading] = useState(true)
+
+  setTimeout(() => {
+    setLoading(false)
+  }, 2000);
+
   return (
-    <div>
-      {products.map((product, index) => {
-        return <ProductItem key={index} name={product.name} price={product.Price} />
-      })}
-    </div>
+    loading ? "Loading" :
+      <div>
+        {products.map((product, index) => {
+          return <ProductItem key={index} name={product.name} price={product.Price} />
+        })}
+      </div>
   )
 }
+
