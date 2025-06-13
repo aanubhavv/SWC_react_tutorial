@@ -1,26 +1,32 @@
-import React, {useState} from 'react'
+import{useState, useRef} from 'react'
 
 export default function Form() {
     // using normal var will not update ui however state does
-    const [name, setName] = useState("Anubhav");
-    const [email, setEmail] = useState("example@gmail.com");
-    const [password, setPassword] = useState("1234");
-    const [confirmPassword, setConfirmPassword] = useState("1234");
+    const [name, setName] = useState(); 
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [confirmPassword, setConfirmPassword] = useState();
+    const testRef = useRef(null);
+
+    console.log(testRef);
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+    }
 
   return (
-    <form>
+    <form on onSubmit={{handleSubmit}}>
         <input 
             type="text" 
             placeholder='Enter your name'
-            value={name}
-            onChange={(event)=>{
-
-                setName(event.target.value)
-            }}
+            ref={testRef}
+            
+            onChange={(event)=>{setName(testRef.current.value)}}
         />
         <input 
             type="email" 
             placeholder='Enter your email' 
+            ref={testRef}
             value={email}
             onChange={(event)=>{setEmail(event.target.value)}}
         />
